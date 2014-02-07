@@ -10,19 +10,18 @@ KEY = 'E0F0D336AF47D3797C68372A869BDBC5'
 URL = 'http://dict-co.iciba.com/api/dictionary.php'
 
 def get_response(word):
-    response = urllib2.urlopen(URL + '?key=' + KEY + '&w=' + word)
-    read_xml(response)
+    return urllib2.urlopen(URL + '?key=' + KEY + '&w=' + word)
 
 def read_xml(xml):
     dom = minidom.parse(xml)
-    root = dom.documentElement
-    show(root)
+    return dom.documentElement
 
 def show(node):
     if not node.hasChildNodes():
-        if node.nodeType == node.TEXT_NODE:
-            if node.data != '\n':
-                print node.data.replace('\n', '')
+        if node.nodeType == node.TEXT_NODE and node.data != '\n':
+            if node.parentNode.tagName == 'orig':
+                print '------------------------------'
+            print node.data.replace('\n', '')
     else:
         for e in node.childNodes:
             show(e)
@@ -34,7 +33,8 @@ def main():
         pass
 
     word = " ".join(args)
-    get_response(word)
+    root = read_xml(get_response(word))
+    show(root)
 
 if __name__ == '__main__':
     main()
