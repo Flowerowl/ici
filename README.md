@@ -2,6 +2,10 @@
 
 一款基于python的命令行查词工具, 使用金山词霸api。
 
+###安装：
+
+pip install ici
+
 ###使用方法：
 
 $ ici boat
