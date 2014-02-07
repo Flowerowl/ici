@@ -1,3 +1,4 @@
+#encoding:utf-8
 from setuptools import setup, find_packages
 import sys, os
 
@@ -19,7 +20,9 @@ setup(name='ici',
       install_requires=[
           # -*- Extra requirements: -*-
       ],
-      entry_points="""
-      # -*- Entry points: -*-
-      """,
-      )
+      entry_points={
+        'console_scripts':[
+            'ici = ici.ici:main'
+        ]
+      },
+)

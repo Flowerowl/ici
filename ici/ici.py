@@ -27,7 +27,7 @@ def show(node):
         for e in node.childNodes:
             show(e)
 
-if __name__ == '__main__':
+def main():
     try:
         options, args = getopt.getopt(sys.argv[1:], ["help"])
     except getopt.GetoptError as e:
@@ -35,3 +35,6 @@ if __name__ == '__main__':
 
     word = " ".join(args)
     get_response(word)
+
+if __name__ == '__main__':
+    main()
