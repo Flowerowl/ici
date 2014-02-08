@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.2'
+version = '0.4'
 
 setup(name='ici',
       version=version,
@@ -18,7 +18,7 @@ setup(name='ici',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          # -*- Extra requirements: -*-
+        'termcolor',
       ],
       entry_points={
         'console_scripts':[
