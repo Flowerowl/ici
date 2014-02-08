@@ -5,6 +5,8 @@ import urllib2
 import getopt
 from xml.dom import minidom
 
+from termcolor import colored
+
 
 KEY = 'E0F0D336AF47D3797C68372A869BDBC5'
 URL = 'http://dict-co.iciba.com/api/dictionary.php'
@@ -19,9 +21,21 @@ def read_xml(xml):
 def show(node):
     if not node.hasChildNodes():
         if node.nodeType == node.TEXT_NODE and node.data != '\n':
-            if node.parentNode.tagName == 'orig':
-                print '------------------------------'
-            print node.data.replace('\n', '')
+            tag_name = node.parentNode.tagName
+            content = node.data.replace('\n', '')
+            if tag_name == 'ps':
+                print colored(content, 'green')
+                print colored('------------------------------', 'green')
+            if tag_name == 'orig':
+                print colored(content, 'red')
+            if tag_name == 'trans':
+                print colored(content, 'red')
+                print colored('------------------------------', 'red')
+            if tag_name == 'pos':
+                print colored(content, 'yellow')
+            if tag_name == 'acceptation':
+                print colored(content, 'yellow')
+                print colored('------------------------------', 'yellow')
     else:
         for e in node.childNodes:
             show(e)
