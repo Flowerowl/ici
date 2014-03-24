@@ -61,3 +61,7 @@ People hold dragon boat race on Dragon Boat Festival in memory of Quyuan.
 Start button of armature river boat to build a project, advance main river answer boat project.
 
 启动右江航电枢纽建设工程，推进主要河流复航工程。
+
+### 运行样例
+
+![ici](ici.png)
