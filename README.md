@@ -65,3 +65,7 @@ Start button of armature river boat to build a project, advance main river answe
 ### 运行样例
 
 ![ici](ici.png)
+
+### vim插件版
+
+https://github.com/Flowerowl/ici.vim
