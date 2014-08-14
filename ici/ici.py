@@ -20,25 +20,21 @@ def read_xml(xml):
     dom = minidom.parse(xml)
     return dom.documentElement
 
-
 def show(node):
     if not node.hasChildNodes():
         if node.nodeType == node.TEXT_NODE and node.data != '\n':
             tag_name = node.parentNode.tagName
             content = node.data.replace('\n', '')
             if tag_name == 'ps':
-                print colored(content, 'green')
-                print colored('------------------------------', 'green')
+                print colored('[' + content + ']', 'green')
             if tag_name == 'orig':
-                print colored(content, 'red')
+                print colored('ex. ' + content, 'blue')
             if tag_name == 'trans':
-                print colored(content, 'red')
-                print colored('------------------------------', 'red')
+                print colored('    ' + content, 'cyan')
             if tag_name == 'pos':
-                print colored(content, 'yellow')
+                print colored(content, 'green').ljust(12),
             if tag_name == 'acceptation':
                 print colored(content, 'yellow')
-                print colored('------------------------------', 'yellow')
     else:
         for e in node.childNodes:
             show(e)
