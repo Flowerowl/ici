@@ -8,59 +8,34 @@ pip install ici
 
 ###使用方法：
 
-$ ici boat
+$ ici what
 
-boat
+[wɒt]
 
-bəʊt
+[wɑ:t]
 
-http://res.iciba.com/resource/amp3/0/0/dd/8f/dd8fc45d87f91c6f9a9f43a3f355a94a.mp3
+pron. （用以询问某人或某事物的词）什么，多少；…的事物；
 
-bot
+adj. …的（事物或人）；
 
-http://res.iciba.com/resource/amp3/1/0/dd/8f/dd8fc45d87f91c6f9a9f43a3f355a94a.mp3
+adv. （用于感叹句中）；
 
-n.
+int. （用以表示不相信或惊奇）；（用以表示未听清楚对方说的话）；
 
-小船，小艇；轮船；
+ex. Compare the use of which and what as determiners and pronouns in questions.
+    试比较which和what用作限定词和代词时，在疑问句中的用法。
 
-vi.
+ex. We categorize functionally idiomsinto three types: ideational (e.g. Indian summer), interpersonal (e.g. What's up?)
+    我们将习语搭配按其功能分为三类：概念搭配（如Indiansummer)，人际搭配（如What’s up?）
 
-乘船，划船；
+ex. The song is called What's Yr [your] Take on Cassavetes.
+    歌名就是“What'syr[your]TakeonCassavetes”。
 
-vt.
+ex. The questions such as"why""what""how"have been answered.
+    现有的研究基本上回答了有关语文课程资源建设的“为什么(why)”、“是什么(what)”及“怎么办(how)”的系列问题。
 
-用船运输；用船装运；
-
-------------------------------
-
-Listen, at the boat yard you've got a fast cigarette boat, right?
-
-听着，在码头你有一艘快艇，对不对？
-
-------------------------------
-
-No landing allowed, " leads to his boat-house, where we'll leave the boat. "
-
-这河汊直逼他的船坞，咱们要在那儿停船上岸。
-
-------------------------------
-
-Casting Town Gate while on a boat no longer leaves you as a land boat.
-
-在船上施展回城术不会再发生“陆上船”的情况。
-
-------------------------------
-
-People hold dragon boat race on Dragon Boat Festival in memory of Quyuan.
-
-人们在端午节举行赛龙舟比赛是为了几年屈原。
-
-------------------------------
-
-Start button of armature river boat to build a project, advance main river answer boat project.
-
-启动右江航电枢纽建设工程，推进主要河流复航工程。
+ex. Who, what, that, etc. are relatives.
+    Who, what, that等是关系代词。
 
 ### 运行样例
 
