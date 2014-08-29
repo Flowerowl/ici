@@ -46,7 +46,7 @@ def main():
     except getopt.GetoptError as e:
         pass
 
-    word = " ".join(args)
+    word = " ".join(args).lower()
     root = read_xml(get_response(word))
     show(root)
 
