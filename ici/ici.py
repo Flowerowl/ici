@@ -20,6 +20,7 @@ def read_xml(xml):
     dom = minidom.parse(xml)
     return dom.documentElement
 
+
 def show(node):
     if not node.hasChildNodes():
         if node.nodeType == node.TEXT_NODE and node.data != '\n':
