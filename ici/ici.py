@@ -1,20 +1,41 @@
 #!/usr/bin/env python
 #encoding:utf-8
+from __future__ import unicode_literals
+
+import re
 import sys
 import urllib2
 import getopt
+import logging
 from xml.dom import minidom
+from collections import namedtuple
 
 from termcolor import colored
 
-import re
 
 KEY = 'E0F0D336AF47D3797C68372A869BDBC5'
 URL = 'http://dict-co.iciba.com/api/dictionary.php'
+TAG = namedtuple('TAG', 'value color')
+TAG_DICT = {
+    'ps': TAG('[%s]', 'green'),
+    'fy': TAG('%s', 'green'),
+    'orig': TAG('ex. %s', 'blue'),
+    'trans': TAG('    %s', 'cyan'),
+    'pos': TAG('%s'.ljust(12), 'green'),
+    'acceptation': TAG('%s', 'yellow')
+}
 
 
-def get_response(word):
-    return urllib2.urlopen(URL + '?key=' + KEY + '&w=' + word)
+logger = logging.getLogger(__name__)
+
+
+def get_response(words):
+    try:
+        response = urllib2.urlopen(URL + '?key=' + KEY + '&w=' + words)
+    except urllib2.URLError:
+        logger.error('哎哟,好像出错了')
+        return
+    return response
 
 
 def read_xml(xml):
@@ -27,18 +48,9 @@ def show(node):
         if node.nodeType == node.TEXT_NODE and node.data != '\n':
             tag_name = node.parentNode.tagName
             content = node.data.replace('\n', '')
-            if tag_name == 'ps':
-                print colored('[' + content + ']', 'green')
-            if tag_name == 'fy':
-                print colored(content, 'green')
-            if tag_name == 'orig':
-                print colored('ex. ' + content, 'blue')
-            if tag_name == 'trans':
-                print colored('    ' + content, 'cyan')
-            if tag_name == 'pos':
-                print colored(content, 'green').ljust(12),
-            if tag_name == 'acceptation':
-                print colored(content, 'yellow')
+            if tag_name in TAG_DICT.keys():
+                tag = TAG_DICT[tag_name]
+                print colored(tag.value % content, tag.color)
     else:
         for e in node.childNodes:
             show(e)
@@ -51,8 +63,11 @@ def main():
         pass
 
     match = re.findall(r'[\w.]+', " ".join(args).lower())
-    word = "_".join(match)
-    root = read_xml(get_response(word))
+    words = "_".join(match)
+    response = get_response(words)
+    if not response:
+        return
+    root = read_xml(response)
     show(root)
 
 
