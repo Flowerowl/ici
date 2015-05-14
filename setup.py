@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.4.2'
+version = '0.4.3'
 
 setup(name='ici',
       version=version,
