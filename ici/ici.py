@@ -7,6 +7,7 @@ from xml.dom import minidom
 
 from termcolor import colored
 
+import re
 
 KEY = 'E0F0D336AF47D3797C68372A869BDBC5'
 URL = 'http://dict-co.iciba.com/api/dictionary.php'
@@ -28,6 +29,8 @@ def show(node):
             content = node.data.replace('\n', '')
             if tag_name == 'ps':
                 print colored('[' + content + ']', 'green')
+            if tag_name == 'fy':
+                print colored(content, 'green')
             if tag_name == 'orig':
                 print colored('ex. ' + content, 'blue')
             if tag_name == 'trans':
@@ -47,7 +50,8 @@ def main():
     except getopt.GetoptError as e:
         pass
 
-    word = " ".join(args).lower()
+    match = re.findall(r'[\w.]+', " ".join(args).lower())
+    word = "_".join(match)
     root = read_xml(get_response(word))
     show(root)
 
