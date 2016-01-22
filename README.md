@@ -41,6 +41,8 @@ ex. Who, what, that, etc. are relatives.
 
 ![ici](ici.png)
 
-### vim插件版
+### Other Versions
 
-https://github.com/Flowerowl/ici.vim
+* Vim <https://github.com/Flowerowl/ici.vim>
+
+* Golang <https://github.com/Flowerowl/ici.go>
