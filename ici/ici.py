@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #encoding:utf-8
-from __future__ import unicode_literals
+from __future__ import print_function, unicode_literals
 
 import re
 import sys
@@ -50,7 +50,7 @@ def show(node):
             content = node.data.replace('\n', '')
             if tag_name in TAG_DICT.keys():
                 tag = TAG_DICT[tag_name]
-                print colored(tag.value % content, tag.color)
+                print (colored(tag.value % content, tag.color))
     else:
         for e in node.childNodes:
             show(e)
