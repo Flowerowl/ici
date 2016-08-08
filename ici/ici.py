@@ -4,11 +4,14 @@ from __future__ import print_function, unicode_literals
 
 import re
 import sys
-import urllib2
 import getopt
 import logging
 from xml.dom import minidom
 from collections import namedtuple
+try:
+    from urllib.request import urlopen
+except ImportError:
+    from urllib2 import urlopen
 
 from termcolor import colored
 
@@ -31,8 +34,8 @@ logger = logging.getLogger(__name__)
 
 def get_response(words):
     try:
-        response = urllib2.urlopen(URL + '?key=' + KEY + '&w=' + words)
-    except urllib2.URLError:
+        response = urlopen(URL + '?key=' + KEY + '&w=' + words)
+    except Exception:
         logger.error('哎哟,好像出错了')
         return
     return response
